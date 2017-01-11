@@ -92,9 +92,4 @@ cli.parse {
 
 cli.main (args, options) ->
   jscpd = new JsCpd
-  logger.profile "All time:"
-  logger.info """
-jscpd - copy/paste detector for programming source code, developed by Andrey Kucherenko
-"""
   jscpd.run options
-  logger.profile "All time:"
