@@ -34,11 +34,10 @@ class Report
     [raw, dump, log] = @reporter @options
     log = @stdReporter() unless log
 
-    logger.info log
     if @options.output
       fs.writeFileSync(@options.output, dump or raw)
     else
-      logger.warn 'output file is not provided'
+      console.log(dump or raw);
 
     return raw or dump
 

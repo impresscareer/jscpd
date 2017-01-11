@@ -30,9 +30,6 @@ class JsCpd
     @execPreProcessors @preProcessors
 
     unless @options.debug
-      logger.profile 'Scanning for duplicates time:'
-      logger.info "Scanning #{@options.selectedFiles.length} files for duplicates..." if @options.selectedFiles.length
-
       strategy = new Strategy @options
       detector = new Detector strategy
 
@@ -40,15 +37,8 @@ class JsCpd
 
       codeMap = detector.start @options.selectedFiles, @options['min-lines'], @options['min-tokens']
 
-      logger.profile 'Scanning for duplicates time:'
-      logger.info 'Scanning... done!\n'
-
-      logger.profile 'Generate report time:'
-      logger.info 'Start report generation...\n'
-
       generateReport = =>
         reportResult = report.generate codeMap
-        logger.profile 'Generate report time:'
         @report = reportResult
         @map = codeMap
         report: @report, map: @map
