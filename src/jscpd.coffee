@@ -21,9 +21,7 @@ class JsCpd
   LANGUAGES: []
 
   execPreProcessors: (list) ->
-    logger.profile 'Preprocessors running time:'
     preProcessor @ for preProcessor in list
-    logger.profile 'Preprocessors running time:'
 
   run: (options) ->
     @options = options
