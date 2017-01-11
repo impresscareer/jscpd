@@ -37,7 +37,7 @@ class Report
     if @options.output
       fs.writeFileSync(@options.output, dump or raw)
     else
-      console.log(dump or raw);
+      console.log(dump or raw)
 
     return raw or dump
 
